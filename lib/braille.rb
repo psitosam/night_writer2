@@ -4,7 +4,7 @@ class Braille
 
   def translate(incoming_text)
     braille = incoming_text.chars.map do |char|
-      BrailleHash::DICTIONARY[char]
+      check_for_valid_input(char)
     end
   end
 
@@ -26,6 +26,6 @@ class Braille
       BrailleHash::DICTIONARY[char]
     else
       BrailleHash::DICTIONARY[" "]
-    end 
+    end
   end
 end
