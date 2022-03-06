@@ -3,6 +3,7 @@ require './lib/braille'
 
 RSpec.describe Braille do
   describe "#translate" do
+
     it "turns a string of characters into an array of braille characters" do
       incoming_text = "aaaaa"
       line_length = 2
@@ -42,6 +43,20 @@ RSpec.describe Braille do
       ]
       expect(outgoing_text).to eq(outgoing_array)
     end
+
+    it "returns a space if the character ' ' is input" do
+      input = " "
+      expected = [
+        [
+          [
+            [".", "."],
+            [".", "."],
+            [".", "."],
+          ],
+        ]
+      ]
+      expect(subject.translate(input)).to eq(expected)
+    end
   end
 
   describe "#check_for_valid_input" do
@@ -54,6 +69,7 @@ RSpec.describe Braille do
       ]
       expect(subject.check_for_valid_input(input)).to eq(expected)
     end
+
     it "returns a space if the character is unrecognized" do
       input = "@"
       expected = [
@@ -121,9 +137,5 @@ RSpec.describe Braille do
       # require 'pry'; binding.pry
       expect(subject.render(input)).to eq(output)
     end
-  end
-
-  describe "#output_width" do
-
   end
 end

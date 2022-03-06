@@ -1,7 +1,7 @@
 require_relative 'braille_hash'
 
 class Braille
-
+  # attr_reader :line_length
   def translate(incoming_text, line_length = 40)
     message = []
     current_text = incoming_text
