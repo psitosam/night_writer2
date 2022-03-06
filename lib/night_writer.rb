@@ -14,8 +14,10 @@ translated = Braille.new.render(braille)
 # require 'pry'; binding.pry
 writer = File.open(ARGV[1], "w")
 
-translated.each do |row|
-  writer.write(row.concat("\n"))
+translated.each do |line|
+  line.each do |row|
+    writer.write(row.concat("\n"))
+  end
 end
 
 
