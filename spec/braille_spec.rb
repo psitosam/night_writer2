@@ -4,19 +4,41 @@ require './lib/braille'
 RSpec.describe Braille do
   describe "#translate" do
     it "turns a string of characters into an array of braille characters" do
-      incoming_text = "aa"
-      outgoing_text = subject.translate(incoming_text)
+      incoming_text = "aaaaa"
+      line_length = 2
+      outgoing_text = subject.translate(incoming_text, line_length)
       outgoing_array = [
-        [
-          ["0", "."],
-          [".", "."],
-          [".", "."],
+        [ #line 1
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
         ],
-        [
-          ["0", "."],
-          [".", "."],
-          [".", "."],
-        ]
+        [ #line 2
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+        ],
+        [ #line 3
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+        ],
       ]
       expect(outgoing_text).to eq(outgoing_array)
     end
@@ -65,5 +87,9 @@ RSpec.describe Braille do
       # require 'pry'; binding.pry
       expect(subject.render(input)).to eq(output)
     end
+  end
+
+  describe "#output_width" do
+
   end
 end
