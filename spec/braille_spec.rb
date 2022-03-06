@@ -22,6 +22,14 @@ RSpec.describe Braille do
     end
   end
 
+  describe "#check_for_valid_input" do
+    it "checks for valid letters or spaces" do
+      input = "@#!"
+      expected = "Please enter a letter a - z or a space"
+      expect(subject.check_for_valid_input).to eq(expected)
+    end
+  end
+
   describe "#render" do
     it "takes a braille array and turns it into an array of strings" do
       input = [
