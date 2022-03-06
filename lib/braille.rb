@@ -19,4 +19,13 @@ class Braille
     end
     array
   end
+
+  def check_for_valid_input(char)
+    braille_hash = BrailleHash::DICTIONARY
+    if braille_hash.keys.include?(char)
+      BrailleHash::DICTIONARY[char]
+    else
+      BrailleHash::DICTIONARY[" "]
+    end 
+  end
 end
