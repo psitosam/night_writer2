@@ -1,5 +1,5 @@
 
-require './braille.rb'
+require_relative 'braille'
 
 file = File.open(ARGV[0], "r")
 
