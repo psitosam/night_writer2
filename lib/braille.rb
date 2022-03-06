@@ -9,6 +9,7 @@ class Braille
   end
 
   def render(input)
+    # require 'pry'; binding.pry
     array = ["", "", ""]
     input.each do |cell|
       array[0].concat(cell[0].join)
