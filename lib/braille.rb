@@ -17,16 +17,18 @@ class Braille
     message
   end
 # pull off the first 40 characters of string, run loop, repeat until no characters left.
-  def render(input)
+  def render(braille_message)
     # require 'pry'; binding.pry
-    array = ["", "", ""]
-    input.each do |cell|
-      array[0].concat(cell[0].join)
-      array[1].concat(cell[1].join)
-      array[2].concat(cell[2].join)
-
+    braille_message.map do |line|
+      array = ["", "", ""]
+      line.each do |cell|
+        array[0].concat(cell[0].join)
+        array[1].concat(cell[1].join)
+        array[2].concat(cell[2].join)
+      end
+      array
     end
-    array
+
   end
 
   def check_for_valid_input(char)
