@@ -17,6 +17,63 @@ RSpec.describe Text do
       ]
       expected = "a"
       expect(subject.translate(incoming_braille)).to eq(expected)
-    end 
+    end
+  end
+
+  describe "#render" do
+    it "takes an array of strings and turns it into a braille array" do
+      input = [
+        [
+          "0.0.",
+          "....",
+          "....",
+        ],
+        [
+          "0.0.",
+          "....",
+          "....",
+        ],
+        [
+          "0.",
+          "..",
+          "..",
+        ],
+      ]
+
+      output = [
+        [ #line 1
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+        ],
+        [ #line 2
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+        ],
+        [ #line 3
+          [
+            ["0", "."],
+            [".", "."],
+            [".", "."],
+          ],
+        ],
+      ]
+      expect(subject.render(input)).to eq(output)
+    end
   end
 end
