@@ -15,6 +15,16 @@ class Text
     array
   end
 
+  def translate(input)
+    braille_characters = []
+    until input.empty? do
+      character = input.each |char|
+      braille_characters << input
+      check_for_valid_input(braille_characters)
+    end
+  end
+
+
   # def braille_text_to_braille_array
   #   lines = s.split(?\n)
   #   longest = lines.map { |l| l.length }.max

@@ -17,17 +17,17 @@ RSpec.describe Text do
     end
   end
 
-  describe "translate" do
-    it "takes a braille character and translates it to an English letter" do
+  describe "#check_for_valid_input" do
+    it "returns the English character for a valid Braille character" do
       input = [
         ["0", "."],
         [".", "."],
         [".", "."],
       ]
       expected = "a"
-      expect(subject.translate(input)).to eq(expected)
+      expect(subject.check_for_valid_input(input)).to eq(expected)
     end
-  end 
+  end
 
 
   describe "#dissect" do
