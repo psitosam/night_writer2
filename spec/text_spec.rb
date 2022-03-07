@@ -12,7 +12,6 @@ RSpec.describe Text do
         [".", "."],
       ]
       expected = 1
-       # require 'pry'; binding.pry
       expect(subject.count_characters(input)).to eq(expected)
     end
   end
@@ -36,6 +35,23 @@ RSpec.describe Text do
       ]
       expected = " "
       expect(subject.check_for_valid_input(input)).to eq(expected)
+    end
+  end
+
+  describe "#translate" do
+    it "turns a series of braille characters into a series of English letters" do
+      input = [
+        ["0", "."],
+        [".", "."],
+        [".", "."],
+      ],
+      [
+        ["0", "."],
+        [".", "."],
+        [".", "."],
+      ]
+      expected = "aa"
+      expect(subject.translate(input)).to eq(expected)
     end
   end
 
