@@ -15,12 +15,16 @@ class Text
     array
   end
 
-  def translate(input)
-    braille_characters = []
-    until input.empty? do
-      character = input.each |char|
-      braille_characters << input
-      check_for_valid_input(braille_characters)
+  def check_for_valid_input(input)
+    text_hash = TextHash::DICTIONARY
+    if text_hash.keys.include?(input)
+      TextHash::DICTIONARY[input]
+    else
+      TextHash::DICTIONARY[[
+        [".", "."],
+        [".", "."],
+        [".", "."],
+      ]]
     end
   end
 

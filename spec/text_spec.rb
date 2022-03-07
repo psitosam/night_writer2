@@ -27,11 +27,21 @@ RSpec.describe Text do
       expected = "a"
       expect(subject.check_for_valid_input(input)).to eq(expected)
     end
+
+    it "returns a space if the character is not recognized" do
+      input = [
+        [".", "."],
+        ["0", "."],
+        [".", "."],
+      ]
+      expected = " "
+      expect(subject.check_for_valid_input(input)).to eq(expected)
+    end
   end
 
 
   describe "#dissect" do
-    xit "takes a string and converts it to nested arrays of two characters each" do
+    it "takes a string and converts it to nested arrays of two characters each" do
       input = "0.00.."
       output = [["0."], ["00"], [".."]]
       expect(subject.dissect(input)).to eq(output)
