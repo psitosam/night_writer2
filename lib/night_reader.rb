@@ -1,5 +1,6 @@
 
 require_relative 'braille'
+require_relative 'text'
 
 file = File.open(ARGV[0], "r")
 
@@ -11,6 +12,6 @@ file.close
 # translated = Text.new.render(text)
 
 writer = File.open(ARGV[1], "w")
-writer.write(incoming_braille)
+wrtier.write(incoming_braille)
 puts "Created '#{ARGV[1]}' containing #{writer.size} characters"
 writer.close
