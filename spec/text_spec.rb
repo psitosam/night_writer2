@@ -12,7 +12,7 @@ RSpec.describe Text do
         [".", "."],
       ]
       expected = 1
-      # require 'pry'; binding.pry
+       # require 'pry'; binding.pry
       expect(subject.count_characters(input)).to eq(expected)
     end
   end
