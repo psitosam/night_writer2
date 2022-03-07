@@ -2,10 +2,10 @@
 
 class Text
 
-  def count_characters(characters)
-    characters =
-
-  end 
+  def count_characters(input)
+    characters = input.size
+    return characters / 3
+  end
 
   def dissect(input)
     array = [[], [], []]

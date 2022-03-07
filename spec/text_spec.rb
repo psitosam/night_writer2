@@ -11,15 +11,16 @@ RSpec.describe Text do
         [".", "."],
         [".", "."],
       ]
-      output = 1
-      expect(input.count_characters).to eq(expected)
+      expected = 1
+      # require 'pry'; binding.pry
+      expect(subject.count_characters(input)).to eq(expected)
     end
   end
 
 
 
   describe "#dissect" do
-    it "takes a string and converts it to nested arrays of two characters each" do
+    xit "takes a string and converts it to nested arrays of two characters each" do
       input = "0.00.."
       output = [["0."], ["00"], [".."]]
       expect(subject.dissect(input)).to eq(output)
@@ -136,5 +137,5 @@ RSpec.describe Text do
   #     input = ["0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0.", "00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0.", "....0.0.0....00.0.0.........0.0.0....00.0.0.........0.0.0....00.0.0.........0.0.", "0....00.0.0.00..0.0.0.0.0....00.0.0.00", ".0..00.0000..0..00.00.0..0..00.0000..0", "0....00.0.0.........0.0.0....00.0.0..."]
   #
   #     output = [["0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0."], ["00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0."], ["....0.0.0....00.0.0.........0.0.0....00.0.0.........0.0.0....00.0.0.........0.0."], []
-    end
+
 end
