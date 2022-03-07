@@ -2,6 +2,21 @@
 
 class Text
 
+  def dissect(input)
+    array = [[], [], []]
+    until input.empty? do
+      array.each_with_index {|x| x << input.slice!(0..1)}
+    end
+    array
+  end
+
+  # def braille_text_to_braille_array
+  #   lines = s.split(?\n)
+  #   longest = lines.map { |l| l.length }.max
+  #   (0..longest).map do |index|
+  #     lines.map {}
+  # end
+
   # def render(input, line_length = 80)
   #   until input.empty? do
   #     line = input.slice(0..1)

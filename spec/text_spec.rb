@@ -9,6 +9,7 @@ RSpec.describe Text do
       input = "0.00.."
       output = [["0."], ["00"], [".."]]
       expect(subject.dissect(input)).to eq(output)
+    end
   end
 
   # describe "#braille_text_to_braille_array" do
