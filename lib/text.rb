@@ -2,6 +2,11 @@
 
 class Text
 
+  def count_characters(characters)
+    characters =
+
+  end 
+
   def dissect(input)
     array = [[], [], []]
     until input.empty? do

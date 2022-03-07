@@ -4,8 +4,22 @@ require './lib/text'
 
 RSpec.describe Text do
 
-  describe "dissect" do
-    it "takes a string of plaintext and converts it to nested arrays of two characters each" do
+  describe "#count_characters" do
+    it "counts the number of incoming braille characters" do
+      input = [
+        ["0", "."],
+        [".", "."],
+        [".", "."],
+      ]
+      output = 1
+      expect(input.count_characters).to eq(expected)
+    end
+  end
+
+
+
+  describe "#dissect" do
+    it "takes a string and converts it to nested arrays of two characters each" do
       input = "0.00.."
       output = [["0."], ["00"], [".."]]
       expect(subject.dissect(input)).to eq(output)
@@ -117,4 +131,10 @@ RSpec.describe Text do
   #     expect(subject.translate(incoming_braille)).to eq(expected)
   #   end
   # end
+  # describe "#create_lines" do
+  #   it "takes an array of strings and separates them into nested arrays" do
+  #     input = ["0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0.", "00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0.", "....0.0.0....00.0.0.........0.0.0....00.0.0.........0.0.0....00.0.0.........0.0.", "0....00.0.0.00..0.0.0.0.0....00.0.0.00", ".0..00.0000..0..00.00.0..0..00.0000..0", "0....00.0.0.........0.0.0....00.0.0..."]
+  #
+  #     output = [["0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0.0....00.0.0.00..0.0.0.0."], ["00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0..0..00.0000..0..00.00.0."], ["....0.0.0....00.0.0.........0.0.0....00.0.0.........0.0.0....00.0.0.........0.0."], []
+    end
 end
