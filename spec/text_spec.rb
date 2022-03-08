@@ -45,6 +45,12 @@ RSpec.describe Text do
          # require 'pry'; binding.pry
       expect(subject.translate(input)).to eq(expected)
     end
+
+    it "can handle multiple lines of braille" do
+      input = ["0.0.", "00.0", "....", "0.0.", "0.0.", "0.0."]
+      expected = "hell"
+      expect(subject.translate(input)).to eq(expected)
+    end
   end
 
 

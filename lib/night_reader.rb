@@ -15,6 +15,7 @@ require_relative 'text'
 #iterate over each nested array, taking the first two elements of each and feed it into a new array [[], [], []]
 file = File.open(ARGV[0], "r")
 incoming_braille = file.readlines.map(&:chomp)
+require 'pry'; binding.pry
 file.close
 #creates a single array with each element being a line of incoming braille
 # file = File.open(ARGV[0], "r")
