@@ -1,16 +1,1 @@
-#ARGV prints out an Array [0, 1, 2, 3, 4]
-* handle = File.open(ARGV[0], "r")
-
-incoming text = handle.read
-
-handle.close
-
-puts incoming_text
-
-capitalized text = incoming_text.upcase
-
-writer = File.open(ARGV[1] "w")
-
-writer.write(capitalized_text)
-
-writer.close
+For the purposes of my own learning, I have left a lot of comments in various places throughout the project. During the process of exploring different approaches I came across some methods and lines of thinking that I would like to revisit again later, when time is not so much of an issue.

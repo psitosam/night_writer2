@@ -1,11 +1,9 @@
 require_relative 'braille_hash'
 
 class Braille
-  # attr_reader :line_length
   def translate(incoming_text, line_length = 40)
     message = []
     current_text = incoming_text
-
     until current_text.empty? do
       line = current_text.slice!(0...line_length)
       braille_line = line.chars.map do |char|
@@ -13,12 +11,10 @@ class Braille
       end
       message << braille_line
     end
-
     message
   end
 # pull off the first 40 characters of string, run loop, repeat until no characters left.
   def render(braille_message)
-    # require 'pry'; binding.pry
     braille_message.map do |line|
       array = ["", "", ""]
       line.each do |cell|
