@@ -25,10 +25,10 @@ file.close
 # incoming_characters = []
 # incoming_characters << incoming_braille
 
-# text = Text.new.translate(incoming_braille)
+text = Text.new.translate(incoming_braille)
 # translated = Text.new.render(text)
 
 writer = File.open(ARGV[1], "w")
-writer.write(incoming_braille)
-puts "Created '#{ARGV[1]}' containing #{incoming_braille.size} characters"
+writer.write(text)
+puts "Created '#{ARGV[1]}' containing #{text.size} characters"
 writer.close
