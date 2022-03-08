@@ -23,6 +23,18 @@ class Text
     end
   end
 
+  def rows_to_braille(input)
+    row_1 = input[0]
+    row_2 = input[1]
+    row_3 = input[2]
+    first_array = row_1.zip(row_2, row_3)
+    first_array.map do |raw_char|
+      raw_char.map do |char_piece|
+        char_piece.chars
+      end
+    end
+  end
+
 
   def check_for_valid_input(input)
     text_hash = TextHash::DICTIONARY
