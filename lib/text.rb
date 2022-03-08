@@ -8,12 +8,21 @@ class Text
   end
 
   def dissect(input)
-    array = [[], [], []]
+    array = []
     until input.empty? do
-      array.each_with_index {|row| row << input.slice!(0..1)}
+      # array.each_with_index {|row| row << input.slice!(0..1)}
+      array << input.slice!(0..1)
     end
     array
   end
+
+  def fix_me(input)
+    # require 'pry'; binding.pry
+    input.map do |row|
+      dissect(row)
+    end
+  end
+
 
   def check_for_valid_input(input)
     text_hash = TextHash::DICTIONARY

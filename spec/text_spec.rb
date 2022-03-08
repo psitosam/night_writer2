@@ -39,7 +39,7 @@ RSpec.describe Text do
   end
 
   describe "#translate" do
-    it "turns a series of braille characters into a series of English letters" do
+    xit "turns a series of braille characters into a series of English letters" do
       input = [
         ["0", "."],
         [".", "."],
@@ -60,20 +60,20 @@ RSpec.describe Text do
   describe "#dissect" do
     it "takes a string and converts it to nested arrays of two characters each" do
       input = "0.00.."
-      output = [["0."], ["00"], [".."]]
+      output = ["0.", "00", ".."]
       expect(subject.dissect(input)).to eq(output)
     end
   end
 
-  describe "#fix_me" do
+  describe "#stack_rows" do
     it "takes an array of braille rows and breaks it into two digit chunks" do
       input = ["0.0.", "..0.", "...."]
       output = [
-                [["0."], ["0."]],
-                [[".."], ["0."]],
-                [[".."], [".."]],
+                ["0.", "0."],
+                ["..", "0."],
+                ["..", ".."],
               ]
-      expect(subject.fix_me(input)).to eq(output)
+      expect(subject.stack_rows(input)).to eq(output)
     end
   end
 
