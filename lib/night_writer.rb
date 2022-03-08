@@ -3,7 +3,7 @@ require_relative 'braille'
 
 file = File.open(ARGV[0], "r")
 
-incoming_text = file.read.delete("\n") #take the things in this file obj and put them into string form
+incoming_text = file.read.delete("\n").downcase #take the things in this file obj and put them into string form, removing any newline characters.
 
 file.close
 
