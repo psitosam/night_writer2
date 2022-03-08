@@ -10,7 +10,7 @@ class Text
   def dissect(input)
     array = [[], [], []]
     until input.empty? do
-      array.each_with_index {|x| x << input.slice!(0..1)}
+      array.each_with_index {|row| row << input.slice!(0..1)}
     end
     array
   end
@@ -27,6 +27,18 @@ class Text
       ]]
     end
   end
+
+  def translate(input)
+    to_be_translated = []
+    braille =  input.each do |char|
+      check_for_valid_input(char)
+    end
+    to_be_translated += braille
+  end
+
+  # def render(input)
+  #
+  # end
 
 
   # def braille_text_to_braille_array

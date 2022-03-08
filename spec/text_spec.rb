@@ -51,6 +51,7 @@ RSpec.describe Text do
         [".", "."],
       ]
       expected = "aa"
+         # require 'pry'; binding.pry
       expect(subject.translate(input)).to eq(expected)
     end
   end
@@ -61,6 +62,18 @@ RSpec.describe Text do
       input = "0.00.."
       output = [["0."], ["00"], [".."]]
       expect(subject.dissect(input)).to eq(output)
+    end
+  end
+
+  describe "#fix_me" do
+    it "takes an array of braille rows and breaks it into two digit chunks" do
+      input = ["0.0.", "..0.", "...."]
+      output = [
+                [["0."], ["0."]],
+                [[".."], ["0."]],
+                [[".."], [".."]],
+              ]
+      expect(subject.fix_me(input)).to eq(output)
     end
   end
 
