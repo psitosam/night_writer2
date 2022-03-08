@@ -50,11 +50,12 @@ class Text
   end
 
   def translate(input)
-    to_be_translated = []
-    braille =  input.each do |char|
-      check_for_valid_input(char)
+    first_step = stack_rows(input)
+    second_step = rows_to_braille(first_step)
+    characters = second_step.map do |braille_char|
+      check_for_valid_input(braille_char)
     end
-    to_be_translated += braille
+    characters.join
   end
 
   # def render(input)

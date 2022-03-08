@@ -39,18 +39,9 @@ RSpec.describe Text do
   end
 
   describe "#translate" do
-    xit "turns a series of braille characters into a series of English letters" do
-      input = [
-        ["0", "."],
-        [".", "."],
-        [".", "."],
-      ],
-      [
-        ["0", "."],
-        [".", "."],
-        [".", "."],
-      ]
-      expected = "aa"
+    it "turns a series of braille characters into a series of English letters" do
+      input = ["0.0.", "..0.", "...."]
+      expected = "ab"
          # require 'pry'; binding.pry
       expect(subject.translate(input)).to eq(expected)
     end
