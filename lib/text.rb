@@ -23,16 +23,28 @@ class Text
     end
   end
 
-  def rows_to_braille(input)
-    row_1 = input[0]
-    row_2 = input[1]
-    row_3 = input[2]
-    first_array = row_1.zip(row_2, row_3)
-    first_array.map do |raw_char|
-      raw_char.map do |char_piece|
-        char_piece.chars
+  def rows_to_braille(stacked_rows)
+    # require 'pry'; binding.pry
+    stacked_lines = []
+    until stacked_rows.length == 0 do
+      stacked_lines << stacked_rows.shift(3)
+    end
+    new_array = []
+    result = stacked_lines.each do |line|
+
+      row_1 = line[0]
+      row_2 = line[1]
+      row_3 = line[2]
+      raw_braille_chars = row_1.zip(row_2, row_3)
+      # require 'pry'; binding.pry
+      braille_chars = raw_braille_chars.map do |raw_char|
+        braille_char = raw_char.map do |char_piece|
+          char_piece.chars
+        end
+        new_array << braille_char
       end
     end
+    new_array
   end
 
 

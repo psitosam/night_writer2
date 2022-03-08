@@ -95,6 +95,17 @@ RSpec.describe Text do
               ]
       expect(subject.rows_to_braille(input)).to eq(output)
     end
+
+    it "can handle more than one line of characters" do
+      input = [["0.", "0."], ["00", ".0"], ["..", ".."], ["0.", "0."], ["0.", "0."], ["0.", "0."]]
+      output = [
+          [["0", "."], ["0", "0"], [".", "."]], #first character "h"
+          [["0", "."], [".", "0"], [".", "."]],  #second character "e"
+          [["0", "."], ["0", "."], ["0", "."]],
+          [["0", "."], ["0", "."], ["0", "."]],
+      ]
+      expect(subject.rows_to_braille(input)).to eq(output)
+    end
   end
 
   # describe "#braille_text_to_braille_array" do

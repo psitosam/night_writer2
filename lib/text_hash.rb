@@ -1,4 +1,4 @@
-
+require_relative 'braille_hash'
 
 module TextHash
 
