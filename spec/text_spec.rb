@@ -77,6 +77,29 @@ RSpec.describe Text do
     end
   end
 
+  describe "#rows_to_braille" do
+    it "takes stacked rows and turns them into braille" do
+      input = [
+                ["0.", "0."],
+                ["..", "0."],
+                ["..", ".."],
+              ]
+      output = [
+                [
+                  ["0", "."],
+                  [".", "."],
+                  [".", "."],
+                ],
+                [
+                  ["0", "."],
+                  ["0", "."],
+                  [".", "."],
+                ],
+              ]
+      expect(subject.rows_to_braille(input)).to eq(output)
+    end
+  end
+
   # describe "#braille_text_to_braille_array" do
   #   it "takes a single letter of braille in text form and converts it to a braille letter array" do
   #     input = "0.00.."

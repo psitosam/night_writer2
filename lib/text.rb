@@ -16,7 +16,7 @@ class Text
     array
   end
 
-  def fix_me(input)
+  def stack_rows(input)
     # require 'pry'; binding.pry
     input.map do |row|
       dissect(row)
